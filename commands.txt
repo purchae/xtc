@@ -1,0 +1,98 @@
+File Window
+-----------
+
+Attributes                   [A]           Implemented
+Attributes Tagged            [Ctrl+A]      Implemented
+Batch                        [Ctrl+B]      Not yet implemented
+Batch                        [Alt+B]       Not yet implemented
+Copy File                    [C]           Implemented
+Copy Tagged                  [Ctrl+C]      Implemented
+Copy with Paths              [Alt+C]       Implemented
+Delete File                  [D]           Implemented
+Delete Tagged                [Ctrl+D]      Implemented
+JFC (Jeff's File Compare)    [J]           Not yet implemented - maybe use diff instead?
+JFC (Jeff's File Compare)    [Alt+J]       Not yet implemented - maybe use diff instead?
+Merge Tags                   [Ctrl+F6]     Not yet implemented
+Move File                    [M]           Implemented
+Move Tagged                  [Ctrl+M]      Implemented
+Move with Paths              [Alt+M]       Implemented
+New Date                     [N]           Not yet implemented
+New Date Tagged              [Ctrl+N]      Not yet implemented
+Open File (quick)            [0]           N/A - X does essentially the same thing
+Open File (all memory)       [Alt+O]       N/A - X does essentially the same thing
+Open ZIP                     [Alt+F5]      Not yet implemented - will be extended to tar, tgz, rpm + others as well
+Print File                   [P]           Not yet implemented
+Print Tagged                 [Ctrl+P]      Not yet implemented
+Rename File                  [R]           Implemented
+Rename Tagged                [Ctrl+R]      Not yet implemented
+Search                       [Ctrl+S]      Not yet implemented
+View File                    [V]           Partially Implemented - external viewer used for now, need to write own
+View Tagged                  [Ctrl+V]      Not yet implemented
+ZIP Files                    [Ctrl+F5]     Not yet implemented
+
+Extra in XTC:
+SymLink                      [L]           Implemented (may use a different letter if Logging is implemented)
+SymLink Tagged               [Ctrl+L]      Implemented (may use a different letter if Logging is implemented)
+SymLink with Paths           [Alt+L]       Implemented (may use a different letter if Logging is implemented)
+
+
+Directory Window
+----------------
+
+Available                    [A]           Not yet implemented
+Branch Files                 [B]           Implemented
+Branch Tagged                [Ctrl+B]      Not yet implemented
+Compare Directories          [C]           Not yet implemented
+Compare Branch               [Alt+C]       Not yet implemented
+Delete Directory             [D]           Implemented
+Global                       [G]           Not yet implemented (same as "branch" on root?)
+Global Tagged                [Ctrl+G]      Not yet implemented
+Graft Directory              [Alt+G]       Implemented
+Hide/Unhide Directory        [Alt+H]       N/A - concept of "hidden" files different in UNIX (. prefix)
+Makedir                      [M]           Implemented
+Oops! - File Undelete        [O]           Not yet implemented - will only work on ext2
+Print Directory              [P]           Not yet implemented
+Prune Directory              [Alt+P]       Implemented
+Rename Directory             [R]           Implemented
+Show all Files               [S]           Not yet implemented
+Show all Tagged              [Ctrl+S]      Not yet implemented
+Treespec                     [\]           Not yet implemented (= go to specified dir, could be handy for files as well)
+Volume Name                  [V]           N/A
+Wash Disk                    [Alt+W]       N/A
+
+Extra in XTC:
+Attributes                   [A]           Implemented
+symLink Dir                  [L]           Implemented (may use a different letter if Logging is implemented)
+
+Directory and File Windows
+--------------------------
+
+Configuration                [Alt+F10]     Implemented - uses F2 though (Alt+F10 unavailable) - may find a better key combo in future
+File Display                 [Alt+F]       Implemented (available view are different to DOS version however, due to different attributes in UNIX)
+Format Diskette              [Alt+F2]      N/A
+Invert                       [I]           Not yet implemented
+Invert All                   [Ctrl+I]      Not yet implemented
+Log Disk                     [L]           N/A - maybe, perhaps we could allow logging portions of the tree, or FTP sites?
+Switch to Disk               [Ctrl+L]      N/A - see log disk
+Log Options                  [Alt+L]       N/A
+Quit                         [Q]           Implemented
+Quit to Directory            [Alt+Q]       Not yet implemented
+Release                      [Alt+R]       N/A - release drives N/A (see log disk) and release branch is done by -
+Sort Criteria                [Alt+S]       Implemented
+Tag                          [T]           Implemented
+Tag All                      [Ctrl+T]      Partially Implemented - in file window but not dir window
+Tag by Attributes            [Alt+T]       Not yet implemented
+Untag                        [U]           Implemented
+Untag All                    [Ctrl+U]      Partially Implemented - in file window but not dir window
+Untag by Attributes          [Alt+U]       Not yet implemented
+eXecute (quick)              [X]           Not yet implemented
+eXecute (all memory)         [Alt+X]       N/A - just use X, no need to worry about DOS memory limitations anymore
+Edit File                    [E]           Partially Implemented - external editor used for now, need to write own
+Filespec                     [F]           Implemented
+
+
+
+Branch, Showall, Global File Windows
+------------------------------------
+
+Compare Files                [Alt+F4]      Not yet implemented

@@ -1,0 +1,42 @@
+#
+# XTC Makefile
+#
+#		CFLAGS=' -O2 -m486 -DLINUX \
+#			-fomit-frame-pointer' \
+
+SHELL = /bin/sh
+VPATH = @srcdir@
+
+CC = @CC@
+CPPFLAGS = @CPPFLAGS@ -Wall
+CFLAGS = $(CPPFLAGS) @CFLAGS@
+LDFLAGS = @LDFLAGS@
+LIBS = @LIBS@
+INSTALL = @INSTALL@
+
+SRCS = main.c dir.c dir_window.c file_window.c info_window.c status_line.c\
+       color.c ui.c util.c key.c modechange.c ops.c filespec.c ini.c\
+       config_screen.c idcache.c
+
+HDRS = common.h dir.h dir_window.h file_window.h info_window.h status_line.h\
+       color.h ui.h util.h key.h modechange.h ops.h filespec.h ini.h\
+       config_screen.h idcache.h
+
+OBJS = main.o dir.o dir_window.o file_window.o info_window.o status_line.o\
+       color.o ui.o util.o key.o modechange.o ops.o filespec.o ini.o\
+       config_screen.o idcache.o
+
+xtc: $(OBJS)
+	gcc -g -o xtc $(OBJS) $(LIBS) $(LDFLAGS)
+
+$(OBJS): $(HDRS)
+
+.c.o: $(HDRS)
+	gcc $(CFLAGS) -c $<
+
+distclean: clean
+	rm -f xtc core config.cache config.log Makefile config.status config.h $(OBJS)
+        
+clean:
+	rm -f xtc core $(OBJS)
+

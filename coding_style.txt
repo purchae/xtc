@@ -1,0 +1,79 @@
+Coding style for XTC
+--------------------
+By Peter Kelly <peter@area51.org.au>
+Last updated: 24 April 1999
+
+This file documents the coding style I follow for XTC. It may not be the "best"
+style, but it is the one which I have been using and thus the style which all
+the XTC source files are written in. For the sake of consistency,  I suggest
+that you follow it for any modifications you make to the program.
+
+An exception to this is when source files have been used from other programs.
+At the time of writing, there is one such file, modechange.c, which is from
+GNU fileutils. This has been done to save extra effort in writing new code to
+handle the chmod command, and to be consistent with existing tools. I intend
+to use other (GPL licensed) code like this in the future. These files should
+be left in whatever format they currently are.
+
+
+Function names
+--------------
+Functions which relate to a specific part of the program should be prefixed with
+the name of that part. This helps make the names more self-explanatory and
+avoids naming conflicts with functions in other parts of the program. For
+example, all functions that deal with the file window are prefixed
+"file_window_".
+
+Functions which are general in nature, i.e. those that are or can be used in any
+part of the program, and possibly other programs, do not need such a prefix.
+These normally belong in util.c.
+
+
+Function headings
+-----------------
+
+Each function has a heading of the following form:
+
+/*******************************************************************************
+function_name~
+
+Description of function.
+*******************************************************************************/
+
+int function_name(int param1, ......) {
+
+  ............
+
+}
+
+The * lines are used to indicate the start of a function, and make it easier
+to determine where functions start when scanning through code. The ~ on the end
+of the function name is useful for locating that function in the file, as you
+can search for function_name~ and be sure that there will only be one occurrance
+of that string in the file, rather than finding calls to the functon as well.
+
+The TAB width used in this code is 2. All lines use TABs for indenting.
+
+
+Bracket placement
+-----------------
+
+All opening curly brackets are placed on the end of the line. Closing curly
+brackets go on a line by themselves. E.g:
+
+if (x > 1) {
+  ......
+}
+
+This is also true when using else, and for functions:
+
+function abc() {
+
+  if (x > 1) {
+		......
+	}
+	else {
+		......
+	}
+
+}

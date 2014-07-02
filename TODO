@@ -1,0 +1,74 @@
+Features/Improvements (major)
+-----------------------------
+- command: New Date
+- command: New Date Tagged
+- command: Prune Directory
+- command: Treespec
+- command: Chmod branch
+- command: Chown branch
+- command: Chgrp branch
+- command: Copy Branch
+- command: Invert
+- command: Invert All
+- have some way to view a symbolic link's destination
+
+
+
+Features/Improvements (minor)
+-----------------------------
+- config: colour settings
+- config: Read permanent settings from disk
+- config: Restore factory default settings
+- option for "fixed" tree selection where tree moves instead of selection (like in XTree)
+- ALT-Q for quit to directory
+- only resize when not in "dialog" type mode
+- copy/move/symlink with paths: make option more like xtree (press P to swtich rather than selecting A or R)
+- copy: perhaps use block size of dest device for copying instead (if bigger than source),
+  to improve performance (e.g. ext2 1k -> fat32 4k would be faster)
+- when copying files, open the destination file with the same permissions as the source. This
+  could avoid a potential security problem where a user's umask is less restrictive than the
+	permissions on the file (at the moment, these permissions are set AFTER the file is copied)
+- reloc_file_op() (ui.c): if dest. dir doesn't exist, give option to create
+- possibly speed up branch logging (*) by finding a better way to show stats when logging
+	(i.e. not re-calculating each time)
+- show links with @ on the end, executables with * on the end, etc., and other ones that ls does
+- different colours for different filetypes (devices, pipes, symlinks, etc.)
+- make "use extended characters for lines" option active after exiting config, rather than on
+	next restart
+
+Bugs to be fixed
+----------------
+- in DATE or ATTRIBUTES view, if just filename is displayed due to short display length,
+  hilight only covers filename characters, rather than the whole line (filled to length)
+- configuration screen doesn't redraw properly (only draws borders/title)
+- get_full_path doesn't work if the user can't access the path
+   (should be fixed so it works if they can see the parent)
+   (e.g. selecting /root in move F2 returns path, but isn't selected
+   if you press F2 again as the get_full_path in file_window_move_ext
+   fails)
+- after running viewer or editor, and quitting, terminal background is black (even on a non-black background terminal)
+- when exiting configuration, if called from file window, lines on edges of window re-appear (as if dir window was there)
+- <-| file problem (bottom/left of screen)
+- unlog does not free any memory(?) - despite use of free(), top still shows program as
+	using same amount of memory after unlog
+- sometimes after grafting a dir the |- line next it shows up as being the end
+  corner when it is not the last directory and vice-versa
+- if resized when in configuration screen, window not redrawn properly when returning to main screen
+- Sizes > 4 gig (2 gig?) not reported properly
+
+Misc
+----
+- make all functions that do not need to be public static and remove from .h files
+- change "Retry file" to just "Retry" in status_line_get_response()? (makes it more
+	general, more appropriate for directories and other things as well)
+- when trying to log a directory and an error occurs, clear the command window before
+	displaying the error (and redraw it afterwards) (?) - check what xtree does
+- don't allow copy tagged/move tagged (with or without paths) to the same directory?
+  ("Source and destination paths are the same")
+- improve speed of chown tagged by only parsing chown_string once (partially done -
+  dir_window_chown and file_window_chown don't use do_chown, but file_window_chown_tagged
+	still does)
+- Fix behaviour of left/right keys in directory window (see mail message from Mathias)
+- More Documentation!
+
+See commands.txt for a list of what has and hasn't been implemented.

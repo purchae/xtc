@@ -1,0 +1,150 @@
+;xtc_map.txt    --crb3 28mar99 for the XTC project
+
+XTC Key Command Specification
+
+TREE WINDOW
+
+Base Keys
+
+Opening window, using frame setup written by Peter Kelly.
+selector bar starts on root directory, traversing the tree as
+commanded by user.
+Tree is partially logged, as set by user-config.
+Initial file-list format is 8X3 in XTG and ZTW. in ytree, it's 
+however many columns will fit based on screen size and length of 
+longest filename; this is probably a good method to copy.
+initial file-list has been single-column in XTC, showing file 
+name and file length.
+
+Keys:
+[default]
+swallow keystrokes without complaint or response.
+
+[Enter]
+Selector drops into small file window, or if user-config is set
+to BYPASS SMALL FILE WINDOW, switch immediately to LARGE FILE
+WINDOW. Either way, selector is placed on first file in displayed
+directory according to currently-selected sort order.
+
+[down]
+selector bar moves down one directory in current layer. if
+selector is already at the last displayed directory but not at
+last directory in layer, scroll tree up to keep selector visible.
+
+[up]
+selector bar moves up one directory in current layer. if selector
+is already at first displayed directory but not at first
+directory in layer, scroll tree down to keep selector visible.
+
+[right]
+
+
+
+[left]
+
+
+[A] Available
+SHOW SPACE MENU displaces comand-key menu. Selection shows all
+available devices, not just those currently mounted/logged. In
+XTG, all drives are ordered as CPM/MSDOS drive letters; we should
+show a letter-series menu of all active logical devices (hdb,
+fda, nfs shares etc). this will take some design work to plan
+a progressive implementation, the endpoint being to show all
+locations where the program is currently allowed to store files.
+
+[B] Branch
+FLAT FILES MENU opens showing all logged files from currently
+selector-bar-selected directory downward.
+
+[C] Compare
+
+[D] Delete
+Delete the current directory if it's empty of files or
+subdirectories.
+User-config determines whether comfirmation is asked ("Delete
+<dirname> directory. Delete this directory?").
+After the deletion, the selector moves up to prior directory, and
+the tree entries scroll up below the deletion point, closing the
+hole.
+
+[F] Filespec
+COMMANDLINE WINDOW displaces command-key menu to set a filespec
+mask. XTG allows three masks; ZTW allows a much longer set, 80h
+long or perhaps longer. When the mask is set, files not matching
+the spec are not displayed.
+
+[G] Global
+FLAT FILES MENU opens showing all currently logged files (based
+at a metaroot, usually the same as the Unix tree root but let's
+not count on it)
+
+[I] Invert
+INVERT SELECTION LIST WINDOW displaces command-key menu to choose
+to invert Filespec or Tags.
+Inverting filespec displays all files NOT matching the current
+mask.
+Inverting tags works on currently selected directory and toggles
+tags on all filtered files, tagging the untagged and untagging
+the tagged. This is a tagging operation: the selector moves
+[down] after the operation.
+
+[L] Log
+XTG: log a new lettered drive, keeping the files already logged.
+(Contrast Ctrl-Log, which abandons curent the log to start a new
+filemap.)
+ytree: log a new basepoint in the unix tree, using a .
+
+
+[M] Make
+Make a new subdirectory off of the currently-selected
+directory.
+
+[O] Oops!
+Switch to UNDELETE WINDOW.
+
+[P] Print
+
+
+[Q] Quit
+Exit the program, in the same directory in which it was started.
+
+
+[R] Rename
+Rename currently selected directory.
+
+[S] Showall
+
+[T] Tag
+Tag all filtered logged files in currently selected directory.
+(Files which are rejected by the current filespec and thus
+not displayed are not touched.)
+
+[U] Untag
+Untag all filtered logged files in currently selected directory
+(Files which are rejected by the current filespec and thus
+not displayed are not touched.)
+
+[V] Volume
+
+
+[X] eXecute
+Switch to EXECUTE COMMAND WINDOW, from which to shell out for a
+command. In MSDOS, if COMMAND is the typed command, the shell
+persists until EXIT. Otherwise, the shell persists for just one
+command.
+
+[F1] Help
+
+[F7] autoview
+
+[F8] split
+
+[F9] menu
+
+[F10] commands
+
+[?] stats
+
+[>] next logged disk
+
+[<] previous logged disk

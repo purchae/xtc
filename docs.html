@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>XTC documentation</title>
+</head>
+<body>
+
+<h1>XTC documentation</h1>
+
+<h3>General keys</h3>
+<table border=1>
+<tr><td><b>Key</b></td><td><b>Function</b></td></tr>
+<tr><td valign=top>Q</td><td>Quit the program</td></tr>
+<tr><td valign=top>F2</td><td>Configuration screen (this key will proabably change in future)</td></tr>
+</table>
+
+<h3>Operations common to both file and directory windows</h3>
+<table border=1>
+<tr><td><b>Key</b></td><td><b>Function</b></td></tr>
+<tr><td valign=top>F</td><td valign=top>Filespec: set the mask that determines which files are displayed</td></tr>
+<tr><td valign=top>ALT+S</td><td valign=top>Sort order: Change the order in which files are sorted in the file order</td></tr>
+<tr><td valign=top>ALT+F</td><td valign=top>File display: Switch between different file display modes. Currently available ones are:<br>
+<ul>
+<li>Normal (default): Filename and size
+<li>Date: Filename, size, date and time
+<li>Attributes: Filename, owner, group, permissions
+</ul>
+</td></tr>
+</table>
+
+
+<h2>The directory window</h2>
+
+The directory window displays a list of all logged directories in a tree structure. The contents of the currently selected window is displayed in the file window, and the statistics are displayed in the info window on the right-hand side of the screen.<p>
+
+<h3>Navigation keys</h3>
+
+<table border=1>
+<tr><td><b>Key</b></td><td><b>Function</b></td></tr>
+<tr><td valign=top>Up, Down/Right/Space, Page Up, Page Down, Home, End</td><td valign=top>Move the selection around</td></tr>
+<tr><td valign=top>Left</td><td valign=top>Select parent directory</td></tr>
+<tr><td valign=top>+</td><td valign=top>Log the selected directory (if it is not already logged). All subdirectories of this will be displayed in the tree (but not logged). The file window will be updated with the contents of this directory.</td></tr>
+<tr><td valign=top>-</td><td valign=top>Unlog the selected directory, and all directories below it. These subdirectories will disappear from the tree, and the file window will show "Dir Not Logged", however the current directory will remain visible in the tree.</td></tr>
+<tr><td valign=top>*</td><td valign=top>Log all directories under the selected one, as deep as they go.</td></tr>
+<tr><td valign=top>ENTER</td><td valign=top>If the directory is not already logged, then it will be logged and the action will be the same as for +. Howver, if the directory IS logged, then the cursor will move to the small file window down the bottom (although if XTC is configured to bypass the small file window, the large file window will be displayed).
+</table>
+
+<h3>Operations</h3>
+<table border=1>
+<tr><td><b>Key</b></td><td><b>Function</b></td></tr>
+<tr><td valign=top>A</td><td valign=top>Attributes (owner, group, mode)</td></tr>
+<tr><td valign=top>B</td><td valign=top>Switch to branch mode, a full-sized file window displaying all files in logged directories in and below the current one.</td></tr>
+<tr><td valign=top>D</td><td valign=top>Delete directory (if empty)</td></tr>
+<tr><td valign=top>L</td><td valign=top>Symlink: Create a symbolic link of the selected directory</td></tr>
+<tr><td valign=top>M</td><td valign=top>Make directory</td></tr>
+<tr><td valign=top>R</td><td valign=top>Rename directory</td></tr>
+<tr><td valign=top>T</td><td valign=top>Tag all files in the selected directory</td></tr>
+<tr><td valign=top>U</td><td valign=top>Untag all files in the selected directory</td></tr>
+<tr><td valign=top>ALT+G</td><td valign=top>Graft (move) dir</td></tr>
+<tr><td valign=top>ALT+P</td><td valign=top>Prune dir (i.e. rm -rf)</td></tr>
+</table>
+
+<h2>The file window</h2>
+
+The file window is initally displayed in the lower part of the screen below the directory window. It's contents are the list of file in the selected directory. When the user pressed ENTER in the directory, they switch to the file window, and if they press ENTER again the file window becomes full-size (taking up the space used by the directory window as well). Pressing ENTER again returns the user to the directory window.
+
+<h3>Navigation keys</h3>
+
+Use Up, Down, Left, Right, Page Up, Page Down/Space, Home and End to move the selection around the file list.
+
+<h3>Operations on single fies</h3>
+
+<table border=1>
+<tr><td><b>Key</b></td><td><b>Function</b></td></tr>
+<tr><td valign=top>A</td><td valign=top>Attributes (owner, group, mode)</td></tr>
+<tr><td valign=top>C</td><td valign=top>Copy file</td></tr>
+<tr><td valign=top>D</td><td valign=top>Delete file</td></tr>
+<tr><td valign=top>E</td><td valign=top>Edit file</td></tr>
+<tr><td valign=top>L</td><td valign=top>Create a symbolic link to the file</td></tr>
+<tr><td valign=top>M</td><td valign=top>Move file</td></tr>
+<tr><td valign=top>R</td><td valign=top>Rename file</td></tr>
+<tr><td valign=top>T</td><td valign=top>Tag file</td></tr>
+<tr><td valign=top>U</td><td valign=top>Untag file</td></tr>
+<tr><td valign=top>V</td><td valign=top>View file</td></tr>
+</table>
+
+<h3>Operations on tagged files</h3>
+
+Each of these operations affect only the files currently visible in the file window that are tagged. That is, tagged files that are masked out by the filespec, or are in other directories not displayed in the list are untouched.
+
+<table border=1>
+<tr><td><b>Key</b></td><td><b>Function</b></td></tr>
+<tr><td valign=top>CTRL+A</td><td valign=top>Set attributes on all visible tagged files</td></tr>
+<tr><td valign=top>CTRL+C</td><td valign=top>Copy tagged files</td></tr>
+<tr><td valign=top>CTRL+D</td><td valign=top>Delete all tagged files in list</td></tr>
+<tr><td valign=top>CTRL+K</td><td valign=top>Move tagged files (use CTRL-K for now because CTRL-M is the same as enter)</td></tr>
+<tr><td valign=top>CTRL+L</td><td valign=top>Symlink tagged files</td></tr>
+<tr><td valign=top>CTRL+T</td><td valign=top>Tag all files in list</td></tr>
+<tr><td valign=top>CTRL+U</td><td valign=top>Untag all files in list</td></tr>
+<tr><td valign=top>ALT+C</td><td valign=top>Copy tagged files, preserving paths</td></tr>
+<tr><td valign=top>ALT+K</td><td valign=top>Move tagged files, preserving paths</td></tr>
+<tr><td valign=top>ALT+L</td><td valign=top>Crreate symlinks of tagged files, preserving paths</td></tr>
+
+</table>
+
+</body>
+</html>

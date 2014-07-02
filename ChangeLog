@@ -1,0 +1,157 @@
+0.1.9 (Aug 15 1999)
+
+  Bugs fixed:
+    - "Floating Exception" crash when entering a directory with filenames longer
+      than the width of the file window (bug only present in 0.1.8?)
+    - Owner/group of files and directories was not updated after changed, until
+      the files or directories were re-logged (bug only present in 0.1.8)
+    - no. of columns not always set properly when in branch mode
+    - when in full-sized file window, and filespec set to something that no files
+      in the file window match, and program switches back to directory window,
+      directory window not redrawn
+		- wrong owners & groups for files & directories being displayed
+		- crash when using the attributes command in the file window
+
+0.1.8 (Jul 25 1999)
+
+  New features:
+    - Configuration screen (F2)
+    - Configuratoin options for:
+      - Initial display format
+      - Initial sort criteria
+      - Initial sort order
+      - Initial sort by path in showall/branch
+      - Initial sort is case sensitive
+      - Small file window access
+      - Number of columns
+      - Initial highlighted directory
+      - Skip Quit command prompt
+      - Audible error indicator
+      - Date format
+      - Time format
+      - Use extended characters for lines (replaces "noacs" option)
+      - Editor
+      - Viewer
+    - In directory window, left selects parent dir and right selects next dir
+      (same as down)
+    - File window supports multiple columns
+    - Prune (ALT-P)
+    - Basic documentation (see docs.html)
+
+  Bugs fixed:
+    - Files being copied twice when copying to a sub-branch in branch mode
+    - On Linux 2.2, the attributes command would change the owner/group of
+      a symbolic link's destination rather than the link it's self.
+    - When chowning tagged files, if a user or group did not exist, the error
+      was reported for each file rather than just once
+
+  Internal changes:
+    - User and group names are cached to improve performance
+
+
+0.1.7 (May 16 1999)
+
+  New features:
+    - Screen redrawn properly when window resized
+    - Filespec
+	
+  Bugs fixed:
+    - Crashes when running in very small window
+    - Compile problems on solaris relating to statfs
+
+0.1.6 (April 24 1999)
+
+  New features:
+    - Sort options (ALT-S)
+
+  Bugs fixed:
+    - Cancel not working when deleting tagged files (broken since 0.1.2)
+    - CTRL-Tag and CTRL-Untag not updating info window
+
+  Internal changes:
+    - Modified coding style slightly. This is now documented in coding_style.txt
+		
+  Other changes:
+    - Move dir (ALT-M) is now Graft dir (ALT-G)
+    - An error message is displayed when the user tries to do a tagged file operation
+      and there are no tagged files
+    - chown, chgrp and chmod commands are now accessed through the attributes command
+
+
+0.1.5 (Apr 17 1999)
+
+  New features:
+    -"No ACS" mode (uses - and | instead of ncurses ACS lines which don't display properly in
+     all fonts) - to use this, give "noacs" as the second parameter to xtc (after the path).
+     This is just a temporary hack until there is a proper option system in place.
+
+  Internal changes:
+    -moved to autoconf - new compilation instructions (see README)
+    -added "distclean" option to makefile which remove's autoconf's files
+
+
+0.1.4 (Apr 13 1999)
+
+  New features:
+    -move now supports moving files between devices (= copy+delete)
+    -copy/move/symlink with paths (ALT-C/ALT-M/ALT-L in file window)
+
+  Bugs fixed:
+    -F10 (cancel) works in directory selection (F2)
+
+  Internal changes:
+    -ops.c created, containing functions to handle copying and moving which do some of the
+       work for the file_window_* functions
+    -do_chown moved from util.c to ops.c
+
+
+0.1.3 (Apr 10 1999)
+
+  New features:
+    -chmod files, tagged files and dirs
+    -symlink dirs
+    -move dirs (ALT-M)
+
+  Internal changes:
+    -incorporated patch from Robert Klein which enables compiling under Solaris
+    -fixed a whole lot of minor problems that were giving warnings with gcc -Wall
+
+
+0.1.2 (Apr 6 1999)
+
+  New features:
+    -chown/chgrp commands now accept uid/gid as well as names
+    -chown command supports owner:group format as in chown(1)
+    -chown/chgrp tagged files (CTRL-O/CTRL-G)
+    -chown/chgrp dirs
+    -date/time shown in info window
+    -support for external editor/viewer (#defined in common.h)
+    -mode display (file permissions) now complete (includes suid/sgid/temp and file types)
+    -file type display supports all types of files
+    -file display adjusts to size of window
+    -copy now retains file ownership/permissions/time permissions and copies symbolic links
+
+  Bugs fixed:
+    -segfault in owner/group display in file window if non-existant user/group
+    -segfault when copying/moving/linking a file to a directory who's parent is not logged
+    
+  Internal changes:
+    -all key input command now use the read_key() function (in key.c)
+    -ALT key now supported - now use ALT-F instead of `-F to change file display
+
+
+0.1.1 (Mar 31 1999)
+
+  New features:
+    -chmod/chown commands
+    -different file display views (`-F in the file window)
+    -file stats displayed in info window (if > 25 lines)
+  
+  Bugs fixed:
+    -dir names "wrapping around" in dir window if they are too long
+    -error message displayed when a dir can't be logged (such as "Permission denied")
+
+
+0.1.0 (Mar 27 1999)
+
+  -initial release

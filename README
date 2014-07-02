@@ -1,0 +1,119 @@
+XTC - A clone of the DOS file manager XTree Gold
+Version 0.1.9, August 15 1999
+
+What is XTC?
+------------
+XTC is a UNIX-based clone of the popular XTree Gold file manager for DOS. It is
+currently in development and contains only file and directory manipulation
+features. Eventually, many if not all of the features of the original will be
+included, including:
+
+- File viewer
+- Text editor
+- Hex editor
+- Archive manipulation
+- Command-line window
+- On-line help.
+
+It also supports UNIX-specific features such as long filenames, symbolic links
+and file permissions. There are a few DOS-specific features of the original such
+as drive logging and undeletion that may not be included.
+
+The program is currently being developed under Linux, but it will eventually
+support other UNIX variants.
+
+XTC is released under the GNU General Public License (GPL). See the file COPYING
+for details.
+
+
+Obtaining the latest version of XTC
+-----------------------------------
+The latest version is available from ftp://ftp.area51.org.au/pub/xtc
+
+The main website for XTC is at http://www.area51.org.au/xtc
+
+
+WARNING
+-------
+There is no warranty of any kind associated with this program. The authors of
+this program are not liable for any loss, alteration or corruption of data
+related to the operation of this program. For more details, see the file
+COPYING.
+
+Compiling XTC
+-------------
+
+To compile XTC, run these commands:
+
+./configure
+make
+
+This will produce an executable called xtc.
+
+XTC has been found to work on the following systems:
+
+Redhat Linux 6.0, ncurses-4.2
+Redhat Linux 5.2, ncurses-4.2
+FreeBSD 3.1-RELEASE, ncurses-1.8.6
+
+I do not know what other platforms it will work with, but I would like to hear
+from others about successes/problems they have had compiling, and if possible,
+solutions to these problems.
+
+Usage
+-----
+If you are familiar with XTree Gold or it's WIN32 clone ZTreeWin
+(http://www.ztree.com) then you'll find XTC works in much the same way. I have
+listed all the keys that are available in the file "docs.html" but I intend to
+write some more detailed documentation in the future.
+
+There are a few differences from the original, however, due to the way that
+terminals work under UNIX:
+
+- Instead of pressing ESC, you must use F10. This is because when you press ESC,
+  it is treated as the start of an escape sequence. There is a half-second pause
+  before the terminal realises that it is only the ESC key that has been
+  pressed, but this gets frustrating. Maybe it could be modified to accept both
+  keys.
+- CTRL-M has the same keycode as the ENTER key. CTRL-I has the same keycode as
+  the TAB key. And CTRL-H has the same keycode as the BACKSPACE key. Don't ask
+  me why. The only one of these that is in use at the moment (or rather, that I
+  have wanted to use so far) is CTRL-M for move tagged files. But since ENTER
+  switches between file and directory mode, I have decided to make it CTRL-K, at
+  least until I find a better solution to this problem.
+- XTree would display the CTRL and ALT commands whenever you held down one of
+  these keys, and copyright info when you held down both. But in Linux, I can't
+  find a way to detect when one of these is held down, apart from on the console
+  where I can read from the keyboard directly. So XTC doesn't do this.
+
+The above limitations are minor but annoying, and I hope to fix them eventually,
+or at least find a better way around them. If you have any ideas on this, let me
+know!
+
+
+Development
+-----------
+My plans for the project are basically to implement all the basic file
+operations (including CTRL and ALT operations), and then release a "stable"
+version before moving on to more advanced features such as viewing, editing and
+archive support. I would like to keep as close as possible to the original, so
+that users familiar with it will feel right at home with this version. Of
+course, there will be a few UNIX-specific issues and features that will need to
+be taken into account, such as those mentioned above, and things like pipes,
+mount points, etc.
+
+If you would like to participate in the development of this program, you'll
+probably want to have a copy of XTree Gold or ZTreeWin (which is very close to
+the original) handy to see how certain features work, unless you're fairly
+familiar with the program. XTree Gold was discontinued serveral years ago and
+is no longer available, but you can get a 30-day trial version of ZTreeWin
+from www.ztree.com. Both of these should run fine under vmware (www.vmware.com).
+XTree Gold is a bit flaky under DOSEmu, and I haven't tried ZTreeWin under
+WINE.
+
+There is a development mailing list for this program. For details, see
+http://www.area51.org.au/xtc
+
+Contacting the author
+---------------------
+You can email me (Peter Kelly) at peter@area51.org.au
