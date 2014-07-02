@@ -1,0 +1,4 @@
+xtc
+===
+
+XTGold clone
