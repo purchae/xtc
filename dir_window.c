@@ -188,6 +188,7 @@ static void dir_window_prune(void) {
 					switch(dir_window_prune_error_message(strerror(errno))) {
 						case RESPONSE_CANCEL: canceled = TRUE; break;
 						default:
+							break;
 					}
 			}
 		}
@@ -1774,6 +1775,7 @@ void dir_window_set_initial_path(void) {
 			/* otherwise, don't set path - will default to root */
 			break;
 		default:
+			break;
 	}
 
 }

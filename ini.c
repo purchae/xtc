@@ -376,6 +376,7 @@ ini_struct *ini_load(const char *filename) {
 			  if (c == '\n') state = ST_START_OF_LINE;
 				break;
 			default:
+				break;
 		}
 	}
   fclose(file);

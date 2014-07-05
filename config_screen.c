@@ -551,6 +551,7 @@ static void config_screen_draw_page(struct menu_page *page) {
 				config_screen_draw_menu_item(page,lineno,FALSE);
 				break;
 			default:
+				break;
 		}
 	}
 	wrefresh(menu_window);

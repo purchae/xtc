@@ -19,7 +19,7 @@
 
 WINDOW *path_window;
 WINDOW *info_window;
-static int info_window_drawn;
+int info_window_drawn;
 int info_window_input_path_pos = 0;
 WINDOW *command_window;
 static int command_window_height = 2;

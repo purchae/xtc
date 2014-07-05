@@ -41,7 +41,7 @@
 #include "modechange.h"
 
 #include <stdlib.h>
-char *malloc ();
+//char *malloc ();
 
 #ifndef NULL
 # define NULL 0

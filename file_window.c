@@ -274,6 +274,7 @@ void file_window_chmod_tagged(void) {
 							switch(status_line_get_response(message,RESPONSE_OK+RESPONSE_CANCEL,FALSE)) {
 								case RESPONSE_CANCEL: canceled = TRUE;
 								default:
+									break;
 							}
 							free(message);
 							free(error_message);
@@ -382,6 +383,7 @@ void file_window_chowngrp_tagged(int chgrp) {
 					switch(status_line_get_response(message,RESPONSE_OK+RESPONSE_CANCEL,FALSE)) {
 						case RESPONSE_CANCEL: canceled = TRUE;
 						default:
+							break;
 					}
 					free(message);
 					free(error_message);
@@ -513,6 +515,7 @@ void file_window_symlink_tagged_op(char *dest_path, int auto_replace, int paths)
 						case RESPONSE_RETRYFILE: linenum--; break;
 						case RESPONSE_CANCEL: canceled = TRUE; break;
 						default:
+							break;
 					}
 				}
 				else {
@@ -636,6 +639,7 @@ void file_window_move_tagged_op(char *dest_path, int auto_replace, int paths) {
 						case RESPONSE_SKIPFILE: linenum++; break;
 						case RESPONSE_CANCEL: canceled = TRUE; break;
 						default:
+							break;
 					}
 				}
 			}
@@ -723,6 +727,7 @@ void file_window_copy_tagged_op(char *dest_path, int auto_replace, int paths) {
 						case RESPONSE_RETRYFILE: itemno--; break;
 						case RESPONSE_CANCEL: canceled = TRUE; break;
 						default:
+							break;
 					}
 				}
 			}
@@ -824,6 +829,7 @@ void file_window_delete_tagged() {
 					switch(status_line_get_response(message,RESPONSE_OK+RESPONSE_CANCEL,FALSE)) {
 						case RESPONSE_CANCEL: canceled = TRUE;
 						default:
+							break;
 					}
 					free(message);
 					linenum++;
@@ -1535,6 +1541,7 @@ void file_window_change_sort_order(void) {
 		  case F_KEY(10): canceled = TRUE; finished = TRUE; break;
 			case ENTER_KEY: finished = TRUE; break;
 		  default:
+			break;
 		}
 	}
 	status_line_clear();
